@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Modifier le parapheur</h1>
+        <h1>{{ __("Edit the initializer") }}</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -28,7 +28,7 @@
                 <input type="text" name="name" id="name" class="form-control" value="{{ $mailBatch->name }}">
             </div>
 
-            <button type="submit" class="btn btn-primary">Mettre à jour le parapheur</button>
+            <button type="submit" class="btn btn-primary">{{ __("Update initializer") }}</button>
         </form>
     </div>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 mb-0">Parapheurs reçus</h1>
+        <h1 class="h3 mb-0"></h1>
     </div>
 
     <div id="batchTransactionList" class="mb-4">
@@ -42,14 +42,14 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <i class="bi bi-building me-2 text-primary"></i>
-                                    <strong>Organisation de départ:</strong>
+                                    <strong>{{ __("Starting organization") }}:</strong>
                                     <p class="ms-4 mb-0">{{ $batchTransaction->organisationSend->name ?? 'N/A' }}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <i class="bi bi-building me-2 text-primary"></i>
-                                    <strong>Organisation d'arrivée:</strong>
+                                    <strong>{{ __("Arrival organization") }}:</strong>
                                     <p class="ms-4 mb-0">{{ $batchTransaction->organisationReceived->name ?? 'N/A' }}</p>
                                 </div>
                             </div>

@@ -5,21 +5,21 @@
         <!-- Header Section -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h1 class="h3 mb-0">Mes Parapheurs</h1>
+                <h1 class="h3 mb-0">{{ __("My paraphers") }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
 {{--                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Tableau de bord</a></li>--}}
-                        <li class="breadcrumb-item active">Parapheurs</li>
+                        <li class="breadcrumb-item active">{{ __("parapher") }}s</li>
                     </ol>
                 </nav>
             </div>
             <div class="d-flex gap-2">
                 <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#filterModal">
-                    <i class="bi bi-funnel me-1"></i> Filtrer
+                    <i class="bi bi-funnel me-1"></i> {{ __("Filtrer") }}
                 </button>
                 @can('create', App\Models\MailBatch::class)
                     <a href="{{ route('batch.create') }}" class="btn btn-primary">
-                        <i class="bi bi-plus-lg me-1"></i> Nouveau Parapheur
+                        <i class="bi bi-plus-lg me-1"></i> {{ __("new parapher") }}
                     </a>
                 @endcan
             </div>
@@ -44,7 +44,7 @@
                                 <i class="bi bi-folder text-primary h4 mb-0"></i>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <h6 class="text-muted mb-1">Total Parapheurs</h6>
+                                <h6 class="text-muted mb-1">{{ __("Total Paraphers") }}</h6>
                                 <h3 class="mb-0">{{ $mailBatches->count() }}</h3>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 <i class="bi bi-inbox text-success h4 mb-0"></i>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <h6 class="text-muted mb-1">Présents</h6>
+                                <h6 class="text-muted mb-1">{{ __('presents') }}</h6>
                                 <h3 class="mb-0">
                                     {{ $mailBatches->filter(function($batch) {
                                         if (!$batch->transactions || $batch->transactions->isEmpty()) {
@@ -91,7 +91,7 @@
                                 <i class="bi bi-send text-warning h4 mb-0"></i>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <h6 class="text-muted mb-1">En Transit</h6>
+                                <h6 class="text-muted mb-1">{{ __("In transit") }}</h6>
                                 <h3 class="mb-0">
                                     {{ $mailBatches->filter(function($batch) {
                                         // Vérifie si transactions existe et n'est pas vide
@@ -126,7 +126,7 @@
                                 <i class="bi bi-file-text text-info h4 mb-0"></i>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <h6 class="text-muted mb-1">Total Courriers</h6>
+                                <h6 class="text-muted mb-1">{{ __("Total mails") }}</h6>
                                 <h3 class="mb-0">{{ $mailBatches->sum(fn($batch) => $batch->mails->count()) }}</h3>
                             </div>
                         </div>
@@ -147,9 +147,9 @@
                                     <input class="form-check-input" type="checkbox" id="selectAll">
                                 </div>
                             </th>
-                            <th class="border-0">Code</th>
+                            <th class="border-0">{{ __("Code") }}</th>
                             <th class="border-0" style="min-width: 250px;">Intitulé</th>
-                            <th class="border-0 text-center">Courriers</th>
+                            <th class="border-0 text-center">{{ __("mails") }}</th>
                             <th class="border-0">Localisation</th>
                             <th class="border-0 text-center">Statut</th>
                             <th class="border-0">Actions</th>

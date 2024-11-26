@@ -60,7 +60,7 @@
         <div class="row justify-content-center">
             <div class="">
                 <div class="batch-receive-container">
-                    <h2 class="form-title">Recevoir un Parapheur</h2>
+                    <h2 class="form-title">{{ __("Recieve a Parapheur") }}</h2>
                     <div class="form-card">
                         <form action="{{ route('batch-received.store') }}" method="POST" id="batchReceiveForm">
                             @csrf
@@ -70,25 +70,25 @@
                                     <span class="input-group-text"><i class="bi bi-folder2-open"></i></span>
                                     <input type="text" class="form-control" id="batchInput" readonly required>
                                     <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#batchModal">
-                                        Sélectionner
+                                        {{ __("select") }}
                                     </button>
                                 </div>
                                 <input type="hidden" name="batch_id" id="batch_id">
                             </div>
                             <div class="mb-3">
-                                <label for="organisationInput" class="form-label">Organisation d'origine</label>
+                                <label for="organisationInput" class="form-label">{{ __("Original organization") }}</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-building"></i></span>
                                     <input type="text" class="form-control" id="organisationInput" readonly required>
                                     <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#organisationModal">
-                                        Sélectionner
+                                        {{ __("select") }}
                                     </button>
                                 </div>
                                 <input type="hidden" name="organisation_send_id" id="organisation_send_id">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="receive-btn">
-                                    <i class="bi bi-inbox-fill"></i> Recevoir le parapheur
+                                    <i class="bi bi-inbox-fill"></i>{{ __("Recieve the paragrapheur") }}
                                 </button>
                             </div>
                         </form>
@@ -103,7 +103,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="batchModalLabel">Sélectionner un parapheur</h5>
+                    <h5 class="modal-title" id="batchModalLabel">{{ __("select a parapheur") }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -125,7 +125,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="organisationModalLabel">Sélectionner une organisation</h5>
+                    <h5 class="modal-title" id="organisationModalLabel">{{ __("select a organization") }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

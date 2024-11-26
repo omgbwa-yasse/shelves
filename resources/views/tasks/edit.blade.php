@@ -7,19 +7,19 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">{{ __("Name") }}</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ $task->name }}" required>
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">{{ __("Description") }}</label>
                 <textarea class="form-control" id="description" name="description" rows="3" required>{{ $task->description }}</textarea>
             </div>
             <div class="form-group">
-                <label for="duration">Duration (hours)</label>
+                <label for="duration">{{ __("Duration") }} ({{ __("hours") }})</label>
                 <input type="number" class="form-control" id="duration" name="duration" value="{{ $task->duration }}" required>
             </div>
             <div class="form-group">
-                <label for="task_status_id">Status</label>
+                <label for="task_status_id">{{ __("Status") }}</label>
                 <select class="form-control" id="task_status_id" name="task_status_id" required>
                     @foreach($taskStatuses as $status)
                         <option value="{{ $status->id }}" {{ $task->task_status_id == $status->id ? 'selected' : '' }}>
@@ -29,7 +29,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="task_type_ids">Task Types</label>
+                <label for="task_type_ids">T{{ __("ask Types") }}</label>
                 <select class="form-control" id="task_type_ids" name="task_type_ids[]" multiple required>
                     @foreach($taskTypes as $type)
                         <option value="{{ $type->id }}" {{ $task->taskTypes->contains($type->id) ? 'selected' : '' }}>
@@ -39,7 +39,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="user_ids">Assigned Users</label>
+                <label for="user_ids">{{ __("Assigned Users") }}</label>
                 <select class="form-control" id="user_ids" name="user_ids[]" multiple required>
                     @foreach($users as $user)
                         <option value="{{ $user->id }}" {{ $task->users->contains($user->id) ? 'selected' : '' }}>
@@ -49,7 +49,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="organisation_ids">Organisations</label>
+                <label for="organisation_ids">{{ __("Organisations") }}</label>
                 <select class="form-control" id="organisation_ids" name="organisation_ids[]" multiple required>
                     @foreach($organisations as $organisation)
                         <option value="{{ $organisation->id }}" {{ $task->organisations->contains($organisation->id) ? 'selected' : '' }}>

@@ -2,34 +2,34 @@
 
 @section('content')
     <div class="container">
-        <h1>Ajouter un versement</h1>
+        <h1> {{ __("add payment") }}</h1>
 
         <!-- J4qi supprimer le choix du service qui émet le verserment et les statuts // cela va être gérer dans le controler   -->
 
         <form id="slipForm" action="{{ route('slips.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="code" class="form-label">Code</label>
+                <label for="code" class="form-label">{{ __("Code") }}</label>
                 <input type="text" class="form-control" id="code" name="code" required maxlength="20">
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
+                <label for="name" class="form-label">{{ __("Name") }}</label>
                 <input type="text" class="form-control" id="name" name="name" required maxlength="200">
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" class="form-label">{{ __("Description") }}</label>
                 <textarea class="form-control" id="description" name="description"></textarea>
             </div>
             <div class="mb-3">
-                <label for="officer_organisation_id" class="form-label">Service d'archives</label>
+                <label for="officer_organisation_id" class="form-label">{{ __("Archives service") }}</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="officer_organisation_name" readonly>
                     <input type="hidden" id="officer_organisation_id" name="officer_organisation_id" required>
-                    <button class="btn btn-outline-secondary select-btn" data-type="officer_organisation" type="button">Select</button>
+                    <button class="btn btn-outline-secondary select-btn" data-type="officer_organisation" type="button">{{ __("Select") }}</button>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-            <button type="reset" class="btn btn-danger">Annuler</button>
+            <button type="submit" class="btn btn-primary">{{ __("Create") }}</button>
+            <button type="reset" class="btn btn-danger">{{ __("cancel") }}</button>
         </form>
     </div>
 
@@ -38,11 +38,11 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="selectionModalLabel">Select Item</h5>
+                    <h5 class="modal-title" id="selectionModalLabel">{{ __("Select Item") }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search...">
+                    <input type="text" id="searchInput" class="form-control mb-3" placeholder="{{ __("Search") }}...">
                     <div id="itemList" class="list-group"></div>
                 </div>
             </div>

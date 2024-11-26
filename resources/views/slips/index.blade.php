@@ -5,12 +5,12 @@
         <div class="row mb-4 align-items-center">
             <div class="col">
                 <h1 class="">
-                    <i class="bi bi-file-earmark-text"></i> Bordereau de versement
+                    <i class="bi bi-file-earmark-text"></i> {{ __("payment slip") }}
                 </h1>
             </div>
             <div class="col-auto">
                 <a href="{{ route('slips.create') }}" class="btn btn-primary btn-lg">
-                    <i class="bi bi-plus-circle"></i> Nouveau bordereau
+                    <i class="bi bi-plus-circle"></i> {{ __("new slip") }}
                 </a>
             </div>
         </div>
@@ -43,13 +43,13 @@
                             </div>
                             <div class="col-md-4 text-md-end mt-3 mt-md-0">
                                 @if($slip->is_received == FALSE && $slip->is_approved == FALSE && $slip->is_integrated == FALSE)
-                                    <span class="badge bg-secondary">Projet</span>
+                                    <span class="badge bg-secondary">{{ __("Project") }}</span>
                                 @elseif($slip->is_received == TRUE && $slip->is_approved == FALSE && $slip->is_integrated == FALSE)
-                                    <span class="badge bg-primary">Examen</span>
+                                    <span class="badge bg-primary">{{ __("Examination") }}</span>
                                 @elseif ($slip->is_received == TRUE && $slip->is_approved == TRUE && $slip->is_integrated == FALSE )
-                                    <span class="badge bg-warning">Approuvé</span>
+                                    <span class="badge bg-warning">{{ __("Approved") }}</span>
                                 @elseif ($slip->is_received == TRUE && $slip->is_approved == TRUE && $slip->is_integrated == TRUE)
-                                    <span class="badge bg-success">Intégré</span>
+                                    <span class="badge bg-success">{{ __("Integrated") }}</span>
                                 @endif
                             </div>
                         </div>

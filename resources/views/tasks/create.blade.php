@@ -100,10 +100,10 @@
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                 <h1 class="h3 mb-0">
                     <i class="bi bi-card-text me-2"></i>
-                    Create New Task
+                    {{ __("Create New Task") }}
                 </h1>
                 <button type="button" class="btn btn-outline-light" id="helpBtn">
-                    <i class="bi bi-question-circle"></i> Help
+                    <i class="bi bi-question-circle"></i> {{ __("Help") }}
                 </button>
             </div>
             <div class="card-body">
@@ -111,16 +111,16 @@
                     @csrf
                     <ul class="nav nav-tabs mb-3" id="taskTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">Basic Info</button>
+                            <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">{{ __("Basic Info") }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">Details</button>
+                            <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab">{{ __("Details") }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="reminders-tab" data-bs-toggle="tab" data-bs-target="#reminders" type="button" role="tab">Reminders</button>
+                            <button class="nav-link" id="reminders-tab" data-bs-toggle="tab" data-bs-target="#reminders" type="button" role="tab">{{ __("Reminders") }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="supervision-tab" data-bs-toggle="tab" data-bs-target="#supervision" type="button" role="tab">Supervision</button>
+                            <button class="nav-link" id="supervision-tab" data-bs-toggle="tab" data-bs-target="#supervision" type="button" role="tab">{{ __("Supervision") }}</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="taskTabsContent">
@@ -128,14 +128,14 @@
                         <div class="tab-pane fade show active" id="basic" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="name" class="form-label"><i class="bi bi-pencil-square me-2"></i>Name</label>
+                                    <label for="name" class="form-label"><i class="bi bi-pencil-square me-2"></i>{{ __("Name") }}</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" required>
                                     @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="duration" class="form-label"><i class="bi bi-clock me-2"></i>Duration (hours)</label>
+                                    <label for="duration" class="form-label"><i class="bi bi-clock me-2"></i>{{ __("Duration") }} ({{ __("hours") }})</label>
                                     <input type="number" class="form-control @error('duration') is-invalid @enderror" id="duration" name="duration" required>
                                     @error('duration')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="description" class="form-label"><i class="bi bi-journal-text me-2"></i>Description</label>
+                                <label for="description" class="form-label"><i class="bi bi-journal-text me-2"></i>{{ __("Description") }}</label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3" required></textarea>
                                 @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -151,7 +151,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="task_status_id" class="form-label"><i class="bi bi-exclamation-triangle me-2"></i>Status</label>
+                                    <label for="task_status_id" class="form-label"><i class="bi bi-exclamation-triangle me-2"></i>{{ __("Status") }}</label>
                                     <select class="form-select @error('task_status_id') is-invalid @enderror" id="task_status_id" name="task_status_id" required>
                                         @foreach($taskStatuses as $status)
                                             <option value="{{ $status->id }}">{{ $status->name }}</option>
@@ -162,7 +162,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="task_type_id" class="form-label"><i class="bi bi-list-task me-2"></i>Task Type</label>
+                                    <label for="task_type_id" class="form-label"><i class="bi bi-list-task me-2"></i>{{ __("Task") }} {{ __("Type") }}</label>
                                     <select class="form-select @error('task_type_id') is-invalid @enderror" id="task_type_id" name="task_type_id" required>
                                         @foreach($taskTypes as $type)
                                             <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -174,17 +174,17 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="start_date" class="form-label"><i class="bi bi-calendar me-2"></i>Start Date</label>
+                                <label for="start_date" class="form-label"><i class="bi bi-calendar me-2"></i>{{ __("Start Date") }}</label>
                                 <input type="date" class="form-control @error('start_date') is-invalid @enderror" id="start_date" name="start_date" required>
                                 @error('start_date')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="parent_task_id" class="form-label"><i class="bi bi-folder me-2"></i>Parent Task</label>
-                                <input type="text" class="form-control mb-2" id="parentTaskSearch" placeholder="Search parent tasks...">
+                                <label for="parent_task_id" class="form-label"><i class="bi bi-folder me-2"></i>{{ __("Parent Task") }}</label>
+                                <input type="text" class="form-control mb-2" id="parentTaskSearch" placeholder="{{ __("Search parent tasks") }}...">
                                 <select class="form-select @error('parent_task_id') is-invalid @enderror" id="parent_task_id" name="parent_task_id">
-                                    <option value="">None</option>
+                                    <option value="">{{ __("None") }}</option>
                                     @foreach($tasks as $task)
                                         <option value="{{ $task->id }}">{{ $task->name }}</option>
                                     @endforeach
@@ -198,7 +198,7 @@
                         <!-- Details Tab -->
                         <div class="tab-pane fade" id="details" role="tabpanel">
                             <div class="mb-3">
-                                <label for="user_ids" class="form-label"><i class="bi bi-people me-2"></i>Assigned Users</label>
+                                <label for="user_ids" class="form-label"><i class="bi bi-people me-2"></i>{{ __("Assigned Users") }}</label>
                                 <select class="form-select select2-multiple @error('user_ids') is-invalid @enderror" id="user_ids" name="user_ids[]" multiple required>
                                     <!-- Options will be dynamically populated -->
                                 </select>
@@ -207,7 +207,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="organisation_ids" class="form-label"><i class="bi bi-building me-2"></i>Organizations</label>
+                                <label for="organisation_ids" class="form-label"><i class="bi bi-building me-2"></i>{{ __("Organizations") }}</label>
                                 <select class="form-select select2-multiple @error('organisation_ids') is-invalid @enderror" id="organisation_ids" name="organisation_ids[]" multiple required>
                                     <!-- Options will be dynamically populated -->
                                 </select>
@@ -216,7 +216,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="attachments" class="form-label"><i class="bi bi-paperclip me-2"></i>Attachments</label>
+                                <label for="attachments" class="form-label"><i class="bi bi-paperclip me-2"></i>{{ __("Attachments") }}</label>
                                 <input type="file" class="form-control @error('attachments') is-invalid @enderror" id="attachments" name="attachments[]" multiple>
                                 @error('attachments')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -224,7 +224,7 @@
                             </div>
                             <div class="row">
                                 <div class="mb-3">
-                                    <label for="mail_ids" class="form-label"><i class="bi bi-envelope me-2"></i>Task Mails</label>
+                                    <label for="mail_ids" class="form-label"><i class="bi bi-envelope me-2"></i>{{__("Task Mails")}}</label>
                                     <select class="form-select select2-multiple @error('mail_ids') is-invalid @enderror" id="mail_ids" name="mail_ids[]" multiple>
                                         <!-- Options will be dynamically populated -->
                                     </select>
@@ -233,7 +233,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="container_ids" class="form-label"><i class="bi bi-archive me-2"></i>Task Containers</label>
+                                    <label for="container_ids" class="form-label"><i class="bi bi-archive me-2"></i>{{ __("Task containers") }}</label>
                                     <select class="form-select select2-multiple @error('container_ids') is-invalid @enderror" id="container_ids" name="container_ids[]" multiple>
                                         <!-- Options will be dynamically populated -->
                                     </select>
@@ -242,7 +242,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="record_ids" class="form-label"><i class="bi bi-file-earmark-text me-2"></i>Task Records</label>
+                                    <label for="record_ids" class="form-label"><i class="bi bi-file-earmark-text me-2"></i>{{ __("Task Records") }}</label>
                                     <select class="form-select select2-multiple @error('record_ids') is-invalid @enderror" id="record_ids" name="record_ids[]" multiple>
                                         <!-- Options will be dynamically populated -->
                                     </select>
@@ -257,17 +257,17 @@
                         <div class="tab-pane fade" id="reminders" role="tabpanel">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_date_fix" class="form-label"><i class="bi bi-calendar-check me-2"></i>Remember Date Fix</label>
+                                    <label for="remember_date_fix" class="form-label"><i class="bi bi-calendar-check me-2"></i>{{ __("Remember Date Fix") }}</label>
                                     <input type="date" class="form-control @error('remember_date_fix') is-invalid @enderror" id="remember_date_fix" name="remember_date_fix">
                                     @error('remember_date_fix')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_periode" class="form-label"><i class="bi bi-clock me-2"></i>Remember Period</label>
+                                    <label for="remember_periode" class="form-label"><i class="bi bi-clock me-2"></i>{{ __("Remember Period") }}</label>
                                     <select class="form-select @error('remember_periode') is-invalid @enderror" id="remember_periode" name="remember_periode">
-                                        <option value="before">Before</option>
-                                        <option value="after">After</option>
+                                        <option value="before">{{ __("Before") }}</option>
+                                        <option value="after">{{ __("After") }}</option>
                                     </select>
                                     @error('remember_periode')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -276,17 +276,17 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_date_trigger" class="form-label"><i class="bi bi-calendar-event me-2"></i>Remember Date Trigger</label>
+                                    <label for="remember_date_trigger" class="form-label"><i class="bi bi-calendar-event me-2"></i>{{ __("Remember Date Trigger") }}</label>
                                     <select class="form-select @error('remember_date_trigger') is-invalid @enderror" id="remember_date_trigger" name="remember_date_trigger">
-                                        <option value="start">Start</option>
-                                        <option value="end">End</option>
+                                        <option value="start">{{ __("Start") }}</option>
+                                        <option value="end">{{ __("End") }}</option>
                                     </select>
                                     @error('remember_date_trigger')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_limit_number" class="form-label"><i class="bi bi-hash me-2"></i>Remember Limit Number</label>
+                                    <label for="remember_limit_number" class="form-label"><i class="bi bi-hash me-2"></i>{{ __("Remember Limit Number") }}</label>
                                     <input type="number" class="form-control @error('remember_limit_number') is-invalid @enderror" id="remember_limit_number" name="remember_limit_number">
                                     @error('remember_limit_number')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -295,14 +295,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_limit_date" class="form-label"><i class="bi bi-calendar-date me-2"></i>Remember Limit Date</label>
+                                    <label for="remember_limit_date" class="form-label"><i class="bi bi-calendar-date me-2"></i>{{ __("Remember Limit Date") }}</label>
                                     <input type="date" class="form-control @error('remember_limit_date') is-invalid @enderror" id="remember_limit_date" name="remember_limit_date">
                                     @error('remember_limit_date')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="remember_user_id" class="form-label"><i class="bi bi-person me-2"></i>Remember User</label>
+                                    <label for="remember_user_id" class="form-label"><i class="bi bi-person me-2"></i>{{ __("Remember User") }}</label>
                                     <select class="form-select @error('remember_user_id') is-invalid @enderror" id="remember_user_id" name="remember_user_id">
                                         <!-- Options will be dynamically populated -->
                                     </select>
@@ -313,19 +313,19 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_frequence_value" class="form-label"><i class="bi bi-clock-history me-2"></i>Remember Frequency Value</label>
+                                    <label for="remember_frequence_value" class="form-label"><i class="bi bi-clock-history me-2"></i>{{ __("Remember Frequency Value") }}</label>
                                     <input type="number" class="form-control @error('remember_frequence_value') is-invalid @enderror" id="remember_frequence_value" name="remember_frequence_value">
                                     @error('remember_frequence_value')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="remember_frequence_unit" class="form-label"><i class="bi bi-clock me-2"></i>Remember Frequency Unit</label>
+                                    <label for="remember_frequence_unit" class="form-label"><i class="bi bi-clock me-2"></i>{{ __("Remember Frequency Unit") }}</label>
                                     <select class="form-select @error('remember_frequence_unit') is-invalid @enderror" id="remember_frequence_unit" name="remember_frequence_unit">
-                                        <option value="year">Year</option>
-                                        <option value="month">Month</option>
-                                        <option value="day">Day</option>
-                                        <option value="hour">Hour</option></select>
+                                        <option value="year">{{ __("Year") }}</option>
+                                        <option value="month">{{ __("Month") }}</option>
+                                        <option value="day">{{ __("Day") }}</option>
+                                        <option value="hour">{{ __("Hour") }}</option></select>
                                     @error('remember_frequence_unit')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -336,7 +336,7 @@
                         <!-- Supervision Tab -->
                         <div class="tab-pane fade" id="supervision" role="tabpanel">
                             <div class="mb-3">
-                                <label for="supervision_user_id" class="form-label"><i class="bi bi-person-check me-2"></i>Supervision User</label>
+                                <label for="supervision_user_id" class="form-label"><i class="bi bi-person-check me-2"></i>{{ __("Supervision User") }}</label>
                                 <select class="form-select @error('supervision_user_id') is-invalid @enderror" id="supervision_user_id" name="supervision_user_id" required>
                                     <!-- Options will be dynamically populated -->
                                 </select>
@@ -345,50 +345,50 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="task_assignation" class="form-label"><i class="bi bi-person-plus me-2"></i>Task Assignation</label>
+                                <label for="task_assignation" class="form-label"><i class="bi bi-person-plus me-2"></i>{{ __("Task Assignation") }}</label>
                                 <select class="form-select @error('task_assignation') is-invalid @enderror" id="task_assignation" name="task_assignation" required>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">{{ __("Yes") }}</option>
+                                    <option value="0">{{ __("No") }}</option>
                                 </select>
                                 @error('task_assignation')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="task_update" class="form-label"><i class="bi bi-arrow-repeat me-2"></i>Task Update</label>
+                                <label for="task_update" class="form-label"><i class="bi bi-arrow-repeat me-2"></i>{{ __("Task Update") }}</label>
                                 <select class="form-select @error('task_update') is-invalid @enderror" id="task_update" name="task_update" required>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">{{ __("Yes") }}</option>
+                                    <option value="0">{{ __("No") }}</option>
                                 </select>
                                 @error('task_update')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="task_parent_update" class="form-label"><i class="bi bi-arrow-up me-2"></i>Task Parent Update</label>
+                                <label for="task_parent_update" class="form-label"><i class="bi bi-arrow-up me-2"></i>{{ __("Task Parent Update") }}</label>
                                 <select class="form-select @error('task_parent_update') is-invalid @enderror" id="task_parent_update" name="task_parent_update" required>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">{{ __("Yes") }}</option>
+                                    <option value="0">{{ __("No") }}</option>
                                 </select>
                                 @error('task_parent_update')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="task_child_update" class="form-label"><i class="bi bi-arrow-down me-2"></i>Task Child Update</label>
+                                <label for="task_child_update" class="form-label"><i class="bi bi-arrow-down me-2"></i>{{ __("Task Child Update") }}</label>
                                 <select class="form-select @error('task_child_update') is-invalid @enderror" id="task_child_update" name="task_child_update" required>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">{{ __("Yes") }}</option>
+                                    <option value="0">{{ __("No") }}</option>
                                 </select>
                                 @error('task_child_update')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="task_close" class="form-label"><i class="bi bi-x-circle me-2"></i>Task Close</label>
+                                <label for="task_close" class="form-label"><i class="bi bi-x-circle me-2"></i>{{ __("Task Close") }}</label>
                                 <select class="form-select @error('task_close') is-invalid @enderror" id="task_close" name="task_close" required>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">{{ __("Yes") }}</option>
+                                    <option value="0">{{ __("No") }}</option>
                                 </select>
                                 @error('task_close')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -397,9 +397,9 @@
                         </div>
                     </div>
                     <div class="text-end mt-4">
-                        <button type="button" class="btn btn-secondary me-2" id="prevBtn">Previous</button>
-                        <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
-                        <button type="submit" class="btn btn-success" id="submitBtn">Create Task</button>
+                        <button type="button" class="btn btn-secondary me-2" id="prevBtn">{{ __("Previous") }}</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">{{ __("Next") }}</button>
+                        <button type="submit" class="btn btn-success" id="submitBtn">{{ __("Create Task") }}</button>
                     </div>
                 </form>
             </div>
@@ -411,14 +411,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Task Creation Help</h5>
+                    <h5 class="modal-title">{{ __("Task Creation Help") }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Instructions on how to fill out the task form</p>
+                    <p>{{ __("Instructions on how to fill out the task form") }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Close") }}</button>
                 </div>
             </div>
         </div>
@@ -429,7 +429,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Select Items</h5>
+                    <h5 class="modal-title">{{ __("Select Items") }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -439,8 +439,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="saveSelection">Save selection</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Close") }}</button>
+                    <button type="button" class="btn btn-primary" id="saveSelection">{{ __("Save selection") }}</button>
                 </div>
             </div>
         </div>

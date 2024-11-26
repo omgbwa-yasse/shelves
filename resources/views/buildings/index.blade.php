@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="">
-        <h1>  <i class="bi bi-building"></i> Liste des bâtiments </h1>
+        <h1>  <i class="bi bi-building"></i> {{__("List of buildings")}} </h1>
         <a href="{{ route('buildings.create') }}" class="btn btn-primary mb-3">
-            <i class="bi bi-plus-circle"></i> Ajouter un bâtiment
+            <i class="bi bi-plus-circle"></i> {{ __("Add building") }}
         </a>
 
         <div id="buildingList">
@@ -17,9 +17,9 @@
                                     <b>{{ $building->name ?? 'N/A' }}</b> (ID: {{ $building->id ?? 'N/A' }})
                                 </h5>
                                 <p class="card-text mb-1">
-                                    <i class="bi bi-file-earmark-text"></i> <strong>Description:</strong> {{ $building->description ?? 'N/A' }}<br>
+                                    <i class="bi bi-file-earmark-text"></i> <strong>{{ __("Description") }}:</strong> {{ $building->description ?? 'N/A' }}<br>
                                     @if($building->floors->count() > 1)
-                                        <i class="bi bi-building"></i> <strong>Building with {{ $building->floors->count() }} levels</strong>
+                                        <i class="bi bi-building"></i> <strong>{{ __("Building with") }} {{ $building->floors->count() }} {{ __("levels") }}</strong>
                                     @endif
                                 </p>
                             </div>
